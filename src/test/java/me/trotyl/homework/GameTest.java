@@ -51,13 +51,13 @@ public class GameTest {
     @Test
     public void guess_should_affect_remaining() throws Exception {
         game.start(2);
-        int result1 = game.getRemaining();
+        int result1 = game.getRemain();
 
         game.guess("5678");
-        int result2 = game.getRemaining();
+        int result2 = game.getRemain();
 
         game.guess("5678");
-        int result3 = game.getRemaining();
+        int result3 = game.getRemain();
 
 
         assertThat(result1, is(2));

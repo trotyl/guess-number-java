@@ -7,7 +7,7 @@ public class Game {
     private Comparer comparer;
 
     private String number;
-    private int remaining;
+    private int remain;
 
     public Game(Generator generator, Comparer comparer) {
         this.generator = generator;
@@ -15,20 +15,20 @@ public class Game {
     }
 
     public Pair<Integer, Integer> guess(String guessNumber) {
-        if (remaining == 0) {
+        if (remain == 0) {
             return new Pair<>(-1, -1);
         }
-        remaining--;
+        remain--;
 
         return comparer.compare(number, guessNumber);
     }
 
     public void start(int limit) {
         number = generator.generate();
-        remaining = limit;
+        remain = limit;
     }
 
-    public int getRemaining() {
-        return remaining;
+    public int getRemain() {
+        return remain;
     }
 }

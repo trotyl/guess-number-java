@@ -13,13 +13,13 @@ public class Generator {
         String number;
 
         do {
-            number = randomNumber();
+            number = generateRandomNumber();
         } while ((int)number.chars().distinct().count() != number.length());
 
         return number;
     }
 
-    private String randomNumber() {
+    private String generateRandomNumber() {
         return random.nextInt(9877) + "";
     }
 }
