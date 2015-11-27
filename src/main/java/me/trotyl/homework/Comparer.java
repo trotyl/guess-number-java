@@ -1,5 +1,7 @@
 package me.trotyl.homework;
 
+import org.javatuples.Pair;
+
 import java.util.HashSet;
 
 public class Comparer {
@@ -8,7 +10,7 @@ public class Comparer {
 
     }
 
-    public String compare(String systemNumber, String userNumber) {
+    public Pair<Integer, Integer> compare(String systemNumber, String userNumber) {
         int numberOfAs = 0;
         HashSet<Character> set = new HashSet<>();
 
@@ -22,6 +24,6 @@ public class Comparer {
 
         int numberOfAsAndBs = systemNumber.length() + userNumber.length() - set.size();
 
-        return numberOfAs + "A" + (numberOfAsAndBs - numberOfAs) + "B";
+        return new Pair<>(numberOfAs, numberOfAsAndBs - numberOfAs);
     }
 }

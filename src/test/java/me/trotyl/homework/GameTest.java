@@ -7,8 +7,6 @@ import org.junit.Test;
 import java.util.Random;
 
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNull.notNullValue;
-import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -33,21 +31,21 @@ public class GameTest {
     public void guess_should_get_right_result_for_certain_input() throws Exception {
         game.start(6);
 
-        String result1 = game.guess("1234");
-        String result2 = game.guess("1324");
-        String result3 = game.guess("4321");
-        String result4 = game.guess("5678");
+        String result1 = game.guess("1234").toString();
+        String result2 = game.guess("1324").toString();
+        String result3 = game.guess("4321").toString();
+        String result4 = game.guess("5678").toString();
 
-        assertThat(result1, is("4A0B"));
-        assertThat(result2, is("2A2B"));
-        assertThat(result3, is("0A4B"));
-        assertThat(result4, is("0A0B"));
+        assertThat(result1, is("[4, 0]"));
+        assertThat(result2, is("[2, 2]"));
+        assertThat(result3, is("[0, 4]"));
+        assertThat(result4, is("[0, 0]"));
     }
 
     @Test
-    public void guess_should_get_null_if_not_started() throws Exception {
-        String result = game.guess("1234");
-        assertThat(result, nullValue());
+    public void guess_should_get_minusOne_if_not_started() throws Exception {
+        String result = game.guess("1234").toString();
+        assertThat(result, is("[-1, -1]"));
     }
 
     @Test
@@ -68,15 +66,15 @@ public class GameTest {
     }
 
     @Test
-    public void guess_should_get_null_if_is_over() throws Exception {
+    public void guess_should_get_minusOne_if_is_over() throws Exception {
         game.start(2);
 
-        String result1 = game.guess("5678");
-        String result2 = game.guess("5678");
-        String result3 = game.guess("5678");
+        String result1 = game.guess("5678").toString();
+        String result2 = game.guess("5678").toString();
+        String result3 = game.guess("5678").toString();
 
-        assertThat(result1, notNullValue());
-        assertThat(result2, notNullValue());
-        assertThat(result3, nullValue());
+        assertThat(result1, is("[0, 0]"));
+        assertThat(result2, is("[0, 0]"));
+        assertThat(result3, is("[-1, -1]"));
     }
 }

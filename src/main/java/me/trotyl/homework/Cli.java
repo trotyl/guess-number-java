@@ -1,6 +1,8 @@
 package me.trotyl.homework;
 
 
+import org.javatuples.Pair;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,7 +30,8 @@ public class Cli {
                 continue;
             }
 
-            String result = game.guess(input);
+            Pair<Integer, Integer> resultPair = game.guess(input);
+            String result = resultPair.getValue0() + "A" + resultPair.getValue1() + "B";
             if (result.equals("4A0B")) {
                 System.out.println("Congratulations!");
                 break;

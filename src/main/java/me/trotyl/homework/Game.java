@@ -1,5 +1,7 @@
 package me.trotyl.homework;
 
+import org.javatuples.Pair;
+
 public class Game {
     private Generator generator;
     private Comparer comparer;
@@ -12,9 +14,9 @@ public class Game {
         this.comparer = comparer;
     }
 
-    public String guess(String guessNumber) {
+    public Pair<Integer, Integer> guess(String guessNumber) {
         if (remaining == 0) {
-            return null;
+            return new Pair<>(-1, -1);
         }
         remaining--;
 
