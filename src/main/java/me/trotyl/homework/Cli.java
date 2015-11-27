@@ -31,9 +31,8 @@ public class Cli {
             }
 
             Pair<Integer, Integer> pair = game.guess(input);
-            String result = pair.getValue0() + "A" + pair.getValue1() + "B";
 
-            if (result.equals("4A0B")) {
+            if (pair.getValue0() == 4 && pair.getValue1() == 0) {
                 System.out.println("Congratulations!");
                 break;
             }
@@ -43,7 +42,7 @@ public class Cli {
                 break;
             }
 
-            System.out.println(result);
+            System.out.println(pair.getValue0() + "A" + pair.getValue1() + "B");
             System.out.println();
         }
     }
