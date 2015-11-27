@@ -32,6 +32,7 @@ public class Cli {
 
             Pair<Integer, Integer> pair = game.guess(input);
             String result = pair.getValue0() + "A" + pair.getValue1() + "B";
+
             if (result.equals("4A0B")) {
                 System.out.println("Congratulations!");
                 break;

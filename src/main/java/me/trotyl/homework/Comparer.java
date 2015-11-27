@@ -6,9 +6,7 @@ import java.util.HashSet;
 
 public class Comparer {
 
-    public Comparer() {
-
-    }
+    public Comparer() {}
 
     public Pair<Integer, Integer> compare(String systemNumber, String userNumber) {
         int numberOfAs = 0;
