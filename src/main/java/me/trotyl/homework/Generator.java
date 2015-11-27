@@ -14,7 +14,7 @@ public class Generator {
 
         do {
             number = randomNumber();
-        } while ((int)number.chars().distinct().count() != 4);
+        } while ((int)number.chars().distinct().count() != number.length());
 
         return number;
     }

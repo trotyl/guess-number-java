@@ -20,7 +20,7 @@ public class Comparer {
             set.add(userNumber.charAt(i));
         }
 
-        int numberOfAsAndBs = 8 - set.size();
+        int numberOfAsAndBs = systemNumber.length() + userNumber.length() - set.size();
 
         return numberOfAs + "A" + (numberOfAsAndBs - numberOfAs) + "B";
     }
